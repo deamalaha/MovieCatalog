@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Movie and TV Shows</string>
+    <string name="app_name">Shows on Netflix</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="title">Title</string>
     <string name="dateline">Dateline</string>

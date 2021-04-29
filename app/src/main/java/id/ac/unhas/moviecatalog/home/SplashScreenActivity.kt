@@ -1,10 +1,9 @@
 package id.ac.unhas.moviecatalog.home
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.Window
+import androidx.appcompat.app.AppCompatActivity
 import id.ac.unhas.moviecatalog.databinding.ActivitySplashScreenBinding
 
 class SplashScreenActivity : AppCompatActivity() {
