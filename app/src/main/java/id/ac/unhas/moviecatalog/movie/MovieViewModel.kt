@@ -6,5 +6,5 @@ import id.ac.unhas.moviecatalog.data.MovieAndShowEntity
 
 class MovieViewModel : ViewModel() {
 
-    fun getMovie() : List<MovieAndShowEntity> = Data.generateMovies()
+    fun getMovie(): List<MovieAndShowEntity> = Data.generateMovies()
 }

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import id.ac.unhas.moviecatalog.data.Data
 import id.ac.unhas.moviecatalog.databinding.FragmentTvShowBinding
 
 class TvShowFragment : Fragment() {
@@ -26,7 +25,10 @@ class TvShowFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[TvShowViewModel::class.java]
+            val viewModel = ViewModelProvider(
+                this,
+                ViewModelProvider.NewInstanceFactory()
+            )[TvShowViewModel::class.java]
             val tvShow = viewModel.getTvShow()
             val adapter = TvShowAdapter()
             adapter.setShow(tvShow)

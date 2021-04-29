@@ -6,13 +6,13 @@ import id.ac.unhas.moviecatalog.data.MovieAndShowEntity
 
 class DetailViewModel : ViewModel() {
 
-    private lateinit var title : String
+    private lateinit var title: String
 
-    fun setSelectedShow(title : String) {
+    fun setSelectedShow(title: String) {
         this.title = title
     }
 
-    fun getShow() : MovieAndShowEntity {
+    fun getShow(): MovieAndShowEntity {
         lateinit var entity: MovieAndShowEntity
         for (movie in Data.generateMovies()) {
             if (movie.title == title) {
