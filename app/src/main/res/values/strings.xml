@@ -10,4 +10,5 @@
     <string name="year">year</string>
     <string name="movie">Movie</string>
     <string name="tvShow">TV Show</string>
+    <string name="netflix_logo">Logo</string>
 </resources>
