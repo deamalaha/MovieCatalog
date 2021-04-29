@@ -1,8 +1,7 @@
 package id.ac.unhas.moviecatalog.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import id.ac.unhas.moviecatalog.R
+import androidx.appcompat.app.AppCompatActivity
 import id.ac.unhas.moviecatalog.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
