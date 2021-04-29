@@ -9,6 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieCatalog">
+        <activity android:name=".ReaderActivity"/>
+        <activity
+            android:name=".detail.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:parentActivityName=".home.MainActivity"
+            android:theme="@style/Theme.MovieCatalog.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".home.MainActivity"/>
+        </activity>
         <activity android:name=".home.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

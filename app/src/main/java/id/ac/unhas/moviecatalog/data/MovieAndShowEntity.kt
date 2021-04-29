@@ -1,6 +1,6 @@
 package id.ac.unhas.moviecatalog.data
 
-data class MovieEntity (
+data class MovieAndShowEntity (
     var title : String,
     var year: String,
     var genre: String,
