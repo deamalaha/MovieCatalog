@@ -24,7 +24,7 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.MainViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): TvShowAdapter.MainViewHolder {
+    ): MainViewHolder {
         val itemTvShowBinding =
             ItemsTvShowBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MainViewHolder(itemTvShowBinding)
@@ -32,7 +32,7 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.MainViewHolder>() {
 
     override fun getItemCount(): Int = listTvShow.size
 
-    override fun onBindViewHolder(holder: TvShowAdapter.MainViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val show = listTvShow[position]
         holder.bind(show)
     }
