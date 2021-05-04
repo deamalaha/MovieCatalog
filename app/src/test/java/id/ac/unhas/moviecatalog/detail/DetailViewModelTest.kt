@@ -11,8 +11,6 @@ class DetailViewModelTest {
     private lateinit var viewModel: DetailViewModel
     private val dummyMovie = Data.generateMovies()[0]
     private val dummyTvShow = Data.generateTvShows()[0]
-    private val titleMovie = dummyMovie.title
-    private val titleTvShow = dummyTvShow.title
 
     @Before
     fun setUp() {

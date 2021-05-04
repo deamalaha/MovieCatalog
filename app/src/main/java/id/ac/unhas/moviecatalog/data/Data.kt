@@ -86,6 +86,36 @@ object Data {
             )
         )
 
+        movies.add(
+            MovieAndShowEntity(
+                "Alita : Battle Angel",
+                "2019",
+                "action, adventure",
+                "Ketika Alita terbangun tanpa ingatan tentang siapa dia di dunia masa depan yang tidak dia kenal, dia ditangkap oleh Ido, seorang dokter yang penuh kasih yang menyadari bahwa di suatu tempat dalam cangkang cyborg yang ditinggalkan ini adalah hati dan jiwa seorang wanita muda dengan luar biasa",
+                R.drawable.alita
+            )
+        )
+
+        movies.add(
+            MovieAndShowEntity(
+                "Avengers : Infinity War",
+                "2018",
+                "adventure, action, fiction",
+                "Karena Avengers dan sekutunya terus melindungi dunia dari ancaman yang terlalu besar untuk ditangani oleh seorang pahlawan, bahaya baru telah muncul dari bayangan kosmik: Thanos. Seorang lalim penghujatan intergalaksi, tujuannya adalah untuk mengumpulkan semua enam Batu Infinity, artefak kekuatan yang tak terbayangkan, dan menggunakannya untuk menimbulkan kehendak memutar pada semua realitas. Segala sesuatu yang telah diperjuangkan oleh Avengers telah berkembang hingga saat ini - nasib Bumi dan keberadaannya sendiri tidak pernah lebih pasti.",
+                R.drawable.infinity_war
+            )
+        )
+
+        movies.add(
+            MovieAndShowEntity(
+                "Bohemian Rhapsody",
+                "2018",
+                "music, drama, history",
+                "Singer Freddie Mercury, guitarist Brian May, drummer Roger Taylor and bass guitarist John Deacon take the music world by storm when they form the rock 'n' roll band Queen in 1970. Hit songs become instant classics. When Mercury's increasingly wild lifestyle starts to spiral out of control, Queen soon faces its greatest challenge yet – finding a way to keep the band together amid the success and excess.",
+                R.drawable.bohemia_rhapsody
+            )
+        )
+
         return movies
     }
 

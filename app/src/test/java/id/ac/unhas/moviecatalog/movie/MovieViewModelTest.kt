@@ -18,6 +18,6 @@ class MovieViewModelTest {
     fun getMovie() {
         val movieEntities = viewModel.getMovie()
         assertNotNull(movieEntities)
-        assertEquals(7, movieEntities.size)
+        assertEquals(10, movieEntities.size)
     }
 }
