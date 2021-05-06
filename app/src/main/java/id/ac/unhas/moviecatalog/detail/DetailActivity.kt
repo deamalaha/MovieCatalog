@@ -37,7 +37,7 @@ class DetailActivity : AppCompatActivity() {
             val title = extras.getString(EXTRA_SHOW)
             if (title != null) {
                 viewModel.setSelectedShow(title)
-                showDetail(viewModel.getShow() as MovieAndShowEntity)
+                showDetail(viewModel.getShow())
             }
         }
     }

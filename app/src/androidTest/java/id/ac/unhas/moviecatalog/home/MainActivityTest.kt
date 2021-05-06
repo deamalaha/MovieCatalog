@@ -34,6 +34,10 @@ class MainActivityTest {
         onView(withId(R.id.text_title)).check(matches(withText(dummyMovie[0].title)))
         onView(withId(R.id.year)).check(matches(isDisplayed()))
         onView(withId(R.id.year)).check(matches(withText(dummyMovie[0].year)))
+        onView(withId(R.id.genre)).check(matches(isDisplayed()))
+        onView(withId(R.id.genre)).check(matches(withText(dummyMovie[0].genre)))
+        onView(withId(R.id.text_description)).check(matches(isDisplayed()))
+        onView(withId(R.id.text_description)).check(matches(withText(dummyMovie[0].description)))
     }
 
     @Test
@@ -41,6 +45,21 @@ class MainActivityTest {
         onView(withText("TV Show")).perform(click())
         onView(withId(R.id.rv_tv_show)).check(matches(isDisplayed()))
         onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyTvShow.size))
+    }
+
+    @Test
+    fun loadDetailTvShow() {
+        onView(withText("TV Show")).perform(click())
+        onView(withId(R.id.rv_tv_show)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_tv_show)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.text_title)).check(matches(isDisplayed()))
+        onView(withId(R.id.text_title)).check(matches(withText(dummyTvShow[0].title)))
+        onView(withId(R.id.year)).check(matches(isDisplayed()))
+        onView(withId(R.id.year)).check(matches(withText(dummyTvShow[0].year)))
+        onView(withId(R.id.genre)).check(matches(isDisplayed()))
+        onView(withId(R.id.genre)).check(matches(withText(dummyTvShow[0].genre)))
+        onView(withId(R.id.text_description)).check(matches(isDisplayed()))
+        onView(withId(R.id.text_description)).check(matches(withText(dummyTvShow[0].description)))
     }
 
 
