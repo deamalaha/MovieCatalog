@@ -15,10 +15,6 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var detailBinding: ContentDetailBinding
 
-    companion object {
-        const val EXTRA_SHOW = "extra_show"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val activityDetailBinding = ActivityDetailBinding.inflate(layoutInflater)
@@ -32,13 +28,10 @@ class DetailActivity : AppCompatActivity() {
             ViewModelProvider.NewInstanceFactory()
         )[DetailViewModel::class.java]
 
-        val extras = intent.extras
-        if (extras != null) {
-            val title = extras.getString(EXTRA_SHOW)
-            if (title != null) {
-                viewModel.setSelectedShow(title)
-                showDetail(viewModel.getShow())
-            }
+        val title = intent.extras?.getString(EXTRA_SHOW)
+        if (title != null) {
+            viewModel.setSelectedShow(title)
+            showDetail(viewModel.getShow())
         }
     }
 
@@ -53,5 +46,9 @@ class DetailActivity : AppCompatActivity() {
             .transform(RoundedCorners(20))
             .apply(RequestOptions.placeholderOf(R.drawable.ic_loading))
             .into(detailBinding.imagePosterDetail)
+    }
+
+    companion object {
+        const val EXTRA_SHOW = "extra_show"
     }
 }

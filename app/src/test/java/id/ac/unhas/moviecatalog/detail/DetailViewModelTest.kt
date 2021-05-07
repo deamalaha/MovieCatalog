@@ -18,7 +18,7 @@ class DetailViewModelTest {
     }
 
     @Test
-    fun getShow() {
+    fun getShowMovie() {
         viewModel.setSelectedShow(dummyMovie.title)
         val movieEntity = viewModel.getShow()
         assertNotNull(movieEntity)
@@ -28,6 +28,10 @@ class DetailViewModelTest {
         assertEquals(dummyMovie.genre, movieEntity.genre)
         assertEquals(dummyMovie.year, movieEntity.year)
 
+    }
+
+    @Test
+    fun getShowTVShow() {
         viewModel.setSelectedShow(dummyTvShow.title)
         val tvShowEntity = viewModel.getShow()
         assertNotNull(tvShowEntity)

@@ -17,8 +17,8 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MainViewHolder>() {
 
     fun setShow(show: List<MovieAndShowEntity>?) {
         if (show == null) return
-        this.listMovie.clear()
-        this.listMovie.addAll(show)
+        listMovie.clear()
+        listMovie.addAll(show)
     }
 
     class MainViewHolder(private val binding: ItemsMovieBinding) :
@@ -28,9 +28,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MainViewHolder>() {
                 tvItemTitle.text = show.title
                 tvItemYear.text = show.year
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailActivity::class.java)
-                    intent.putExtra(DetailActivity.EXTRA_SHOW, show.title)
-                    itemView.context.startActivity(intent)
+                    val intent = Intent(itemView.context, DetailActivity::class.java).apply {
+                        putExtra(DetailActivity.EXTRA_SHOW, show.title) }
+                    it.context.startActivity(intent)
                 }
                 Glide.with(itemView.context)
                     .load(show.image)

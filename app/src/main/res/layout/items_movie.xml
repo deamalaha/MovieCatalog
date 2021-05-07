@@ -16,6 +16,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:contentDescription="@string/detail_image_poster"
             android:id="@+id/img_poster"
             android:layout_width="120dp"
             android:layout_height="120dp"
