@@ -8,7 +8,7 @@ import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import id.ac.unhas.moviecatalog.R
-import id.ac.unhas.moviecatalog.data.Data
+import id.ac.unhas.moviecatalog.data.source.local.Data
 import org.junit.Rule
 import org.junit.Test
 

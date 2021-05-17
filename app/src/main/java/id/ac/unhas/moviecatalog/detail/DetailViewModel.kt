@@ -1,10 +1,11 @@
 package id.ac.unhas.moviecatalog.detail
 
 import androidx.lifecycle.ViewModel
-import id.ac.unhas.moviecatalog.data.Data
-import id.ac.unhas.moviecatalog.data.MovieAndShowEntity
+import id.ac.unhas.moviecatalog.data.source.local.Data
+import id.ac.unhas.moviecatalog.data.source.local.MovieAndShowEntity
+import id.ac.unhas.moviecatalog.data.repo.Repository
 
-class DetailViewModel : ViewModel() {
+class DetailViewModel constructor(private val repository: Repository): ViewModel() {
 
     private lateinit var title: String
 

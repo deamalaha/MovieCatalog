@@ -1,10 +1,11 @@
 package id.ac.unhas.moviecatalog.movie
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import id.ac.unhas.moviecatalog.data.Data
-import id.ac.unhas.moviecatalog.data.MovieAndShowEntity
+import id.ac.unhas.moviecatalog.data.repo.Repository
+import id.ac.unhas.moviecatalog.data.source.local.MovieAndShowEntity
 
-class MovieViewModel : ViewModel() {
+class MovieViewModel constructor(private val repository: Repository) : ViewModel() {
 
-    fun getMovie(): List<MovieAndShowEntity> = Data.generateMovies()
+    fun getMovie(): LiveData<List<MovieAndShowEntity>> = repository.getMovies()
 }

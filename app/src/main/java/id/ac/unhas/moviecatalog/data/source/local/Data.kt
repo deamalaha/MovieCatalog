@@ -1,4 +1,4 @@
-package id.ac.unhas.moviecatalog.data
+package id.ac.unhas.moviecatalog.data.source.local
 
 import id.ac.unhas.moviecatalog.R
 

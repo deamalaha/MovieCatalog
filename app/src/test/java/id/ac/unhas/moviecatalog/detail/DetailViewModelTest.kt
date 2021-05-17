@@ -1,6 +1,6 @@
 package id.ac.unhas.moviecatalog.detail
 
-import id.ac.unhas.moviecatalog.data.Data
+import id.ac.unhas.moviecatalog.data.source.local.Data
 import org.junit.Before
 import org.junit.Test
 

@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import id.ac.unhas.moviecatalog.databinding.FragmentTvShowBinding
 
+
+@AndroidEntryPoint
 class TvShowFragment : Fragment() {
 
     private lateinit var fragmentTvShowBinding: FragmentTvShowBinding
@@ -16,7 +19,7 @@ class TvShowFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentTvShowBinding = FragmentTvShowBinding.inflate(inflater, container, false)
         return fragmentTvShowBinding.root
     }

@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import id.ac.unhas.moviecatalog.databinding.FragmentMovieBinding
 
+
+@AndroidEntryPoint
 class MovieFragment : Fragment() {
 
     private lateinit var fragmentMovieBinding: FragmentMovieBinding
@@ -30,7 +33,7 @@ class MovieFragment : Fragment() {
             )[MovieViewModel::class.java]
             val movie = viewModel.getMovie()
             val adapter = MovieAdapter()
-            adapter.setShow(movie)
+            adapter.setShow(movie) // this one has errors
 
             with(fragmentMovieBinding.rvMovie) {
                 layoutManager = LinearLayoutManager(context)

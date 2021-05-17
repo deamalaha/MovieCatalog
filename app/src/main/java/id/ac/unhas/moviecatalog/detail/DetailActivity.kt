@@ -6,11 +6,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import dagger.hilt.android.AndroidEntryPoint
 import id.ac.unhas.moviecatalog.R
-import id.ac.unhas.moviecatalog.data.MovieAndShowEntity
+import id.ac.unhas.moviecatalog.data.source.local.MovieAndShowEntity
 import id.ac.unhas.moviecatalog.databinding.ActivityDetailBinding
 import id.ac.unhas.moviecatalog.databinding.ContentDetailBinding
 
+@AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var detailBinding: ContentDetailBinding
