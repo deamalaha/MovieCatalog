@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="id.ac.unhas.moviecatalog">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:name=".di.KodeinInjection"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -12,7 +15,7 @@
         android:theme="@style/Theme.MovieCatalog"
         tools:ignore="AllowBackup">
         <activity
-            android:name=".home.SplashScreenActivity"
+            android:name=".ui.home.SplashScreenActivity"
             android:theme="@style/Theme.MovieCatalog.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,15 +24,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".detail.DetailActivity"
+            android:name=".ui.detail.DetailActivity"
             android:label="@string/title_activity_detail"
-            android:parentActivityName=".home.MainActivity"
+            android:parentActivityName=".ui.home.MainActivity"
             android:theme="@style/Theme.MovieCatalog.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".home.MainActivity" />
+                android:value=".ui.home.MainActivity" />
         </activity>
-        <activity android:name=".home.MainActivity" />
+        <activity android:name=".ui.home.MainActivity" />
     </application>
 
 </manifest>

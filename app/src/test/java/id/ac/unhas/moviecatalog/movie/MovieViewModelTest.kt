@@ -1,5 +1,6 @@
 package id.ac.unhas.moviecatalog.movie
 
+import id.ac.unhas.moviecatalog.ui.movie.MovieViewModel
 import org.junit.Before
 import org.junit.Test
 

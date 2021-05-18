@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.1.3"
+        classpath "com.android.tools.build:gradle:4.2.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -40,4 +40,18 @@ ext {
     glideVersion = '4.11.0'
 
     androidXTestVersion = '1.2.0'
+
+    ktxVersion = '1.2.3'
+
+    //coroutine
+    coroutineVersion = '1.3.9'
+
+    //retrofit
+    retrofit2Version = '2.9.0'
+    okhttp3Version = '4.9.0'
+
+    //mockito
+    mockitoVersion = '3.6.0'
+    mockitoKotlinVersion = '2.2.0'
+
 }

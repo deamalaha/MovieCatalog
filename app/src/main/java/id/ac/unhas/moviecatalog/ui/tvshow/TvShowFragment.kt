@@ -1,22 +1,31 @@
-package id.ac.unhas.moviecatalog.tvshow
+package id.ac.unhas.moviecatalog.ui.tvshow
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import id.ac.unhas.moviecatalog.databinding.FragmentTvShowBinding
+import id.ac.unhas.moviecatalog.utils.ViewModelFactory
+import org.kodein.di.Kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.x.kodein
+import org.kodein.di.generic.instance
 
-class TvShowFragment : Fragment() {
+class TvShowFragment : Fragment(), KodeinAware {
 
     private lateinit var fragmentTvShowBinding: FragmentTvShowBinding
+    override val kodein: Kodein by kodein()
+    private val factory: ViewModelFactory by instance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         fragmentTvShowBinding = FragmentTvShowBinding.inflate(inflater, container, false)
         return fragmentTvShowBinding.root
     }
@@ -25,13 +34,18 @@ class TvShowFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(
-                this,
-                ViewModelProvider.NewInstanceFactory()
-            )[TvShowViewModel::class.java]
-            val tvShow = viewModel.getTvShow()
+            val viewModel = ViewModelProvider(this, factory)[TvShowViewModel::class.java]
+
             val adapter = TvShowAdapter()
-            adapter.setShow(tvShow)
+
+            this.lifecycleScope.launchWhenStarted {
+                viewModel.getTvShow().observe(viewLifecycleOwner, Observer {
+                    fragmentTvShowBinding.progressBar.visibility = View.GONE
+
+                    adapter.setShow(it)
+                    adapter.notifyDataSetChanged()
+                })
+            }
 
             with(fragmentTvShowBinding.rvTvShow) {
                 layoutManager = LinearLayoutManager(context)
@@ -40,5 +54,4 @@ class TvShowFragment : Fragment() {
             }
         }
     }
-
 }

@@ -1,4 +1,4 @@
-package id.ac.unhas.moviecatalog.home
+package id.ac.unhas.moviecatalog.ui.home
 
 import android.content.Context
 import androidx.annotation.StringRes
@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import id.ac.unhas.moviecatalog.R
-import id.ac.unhas.moviecatalog.movie.MovieFragment
-import id.ac.unhas.moviecatalog.tvshow.TvShowFragment
+import id.ac.unhas.moviecatalog.ui.movie.MovieFragment
+import id.ac.unhas.moviecatalog.ui.tvshow.TvShowFragment
 
 class SectionPagerAdapter(private val mContext: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

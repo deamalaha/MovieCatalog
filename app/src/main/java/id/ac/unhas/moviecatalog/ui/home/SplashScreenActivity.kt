@@ -1,4 +1,4 @@
-package id.ac.unhas.moviecatalog.home
+package id.ac.unhas.moviecatalog.ui.home
 
 import android.content.Intent
 import android.os.Bundle
