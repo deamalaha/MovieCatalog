@@ -33,7 +33,7 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MainViewHolder>() {
                 tvItemYear.text = show.year
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java).apply {
-                        putExtra(DetailActivity.EXTRA_ID, show.movieId)
+                        putExtra(DetailActivity.EXTRA_MOVIE, show.movieId)
                         putExtra(DetailActivity.EXTRA_IDENTIFIER, 1)
                     }
                     it.context.startActivity(intent)

@@ -49,7 +49,7 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.MainViewHolder>() {
                 tvItemYear.text = show.year
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailActivity::class.java).apply {
-                        putExtra(DetailActivity.EXTRA_ID, show.tvId)
+                        putExtra(DetailActivity.EXTRA_TVSHOW, show.tvId)
                         putExtra(DetailActivity.EXTRA_IDENTIFIER, 2)
                     }
                     itemView.context.startActivity(intent)

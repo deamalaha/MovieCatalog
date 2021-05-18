@@ -17,8 +17,7 @@ class DetailViewModel (private var detailRepository: Repository): ViewModel() {
             this.tvId = id
         }
     }
+    fun getMovie(movieId: Int): LiveData<DetailShow> = detailRepository.getDetailMovie(movieId)
 
-    fun getMovie(): LiveData<DetailShow> = detailRepository.getDetailMovie(movieId)
-
-    fun getTVShow(): LiveData<DetailShow> = detailRepository.getDetailTVShow(tvId)
+    fun getTVShow(tvId: Int): LiveData<DetailShow> = detailRepository.getDetailTVShow(tvId)
 }

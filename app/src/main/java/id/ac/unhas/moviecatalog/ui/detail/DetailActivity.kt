@@ -41,19 +41,21 @@ class DetailActivity : AppCompatActivity(), KodeinAware {
             factory
         )[DetailViewModel::class.java]
 
-        val getId = intent.getIntExtra(EXTRA_ID, 0)
+        val getMovieId = intent.getIntExtra(EXTRA_MOVIE, 0)
+        val getTVShowId = intent.getIntExtra(EXTRA_TVSHOW, 0)
         val getIdentifier = intent.getIntExtra(EXTRA_IDENTIFIER, 0)
 
-        viewModel.setSelectedShow(getId)
-
         when (getIdentifier) {
-            1 -> viewModel.getMovie().observe(this, Observer {
-                showDetail(it)})
-            2 -> viewModel.getTVShow().observe(this, Observer {
-                showDetail(it)})
+            1 -> {
+                viewModel.getMovie(getMovieId).observe(this, Observer { showDetail(it) })
+            }
+            2 -> {
+                viewModel.getTVShow(getTVShowId).observe(this, Observer {
+                    showDetail(it)
+                })
+            }
         }
         Log.i("DETAIL", "$getIdentifier")
-
     }
 
     private fun showDetail(show: DetailShow) {
@@ -85,7 +87,8 @@ class DetailActivity : AppCompatActivity(), KodeinAware {
 
 
     companion object {
-        const val EXTRA_ID = "extra"
+        const val EXTRA_MOVIE = "extra"
+        const val EXTRA_TVSHOW = "extra"
         const val EXTRA_IDENTIFIER = "extra"
     }
 }
