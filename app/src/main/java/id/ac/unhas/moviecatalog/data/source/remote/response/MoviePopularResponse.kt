@@ -25,5 +25,6 @@ data class MoviePopular(
 
     @field:SerializedName("poster_path")
     val posterPath: String
+)
 
-    )
+

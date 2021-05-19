@@ -17,9 +17,9 @@ data class TVShow(
 )
 
 data class DetailShow(
-    var id: Int?,
-    var title: String?,
-    var year: String?,
-    var description: String?,
-    var image: String?
+    var id: Int,
+    var title: String,
+    var year: String,
+    var description: String,
+    var image: String
 )

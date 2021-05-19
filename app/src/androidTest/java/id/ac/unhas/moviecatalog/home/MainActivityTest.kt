@@ -1,6 +1,7 @@
 package id.ac.unhas.moviecatalog.home
 
 import androidx.recyclerview.widget.RecyclerView
+import androidx.test.core.app.ActivityScenario
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.espresso.action.ViewActions.click
@@ -8,14 +9,18 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
 import id.ac.unhas.moviecatalog.R
 import id.ac.unhas.moviecatalog.ui.home.MainActivity
 import id.ac.unhas.moviecatalog.utils.Data
 import id.ac.unhas.moviecatalog.utils.EspressoIdlingResource
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 
+@RunWith(AndroidJUnit4ClassRunner::class)
 class MainActivityTest {
 
     private val dummyMovie = Data.generateMovies()
@@ -23,7 +28,7 @@ class MainActivityTest {
 
     @Before
     fun setUp() {
-        ActivityScenarioRule(MainActivity::class.java)
+        ActivityScenario.launch(MainActivity::class.java)
         IdlingRegistry.getInstance().register(EspressoIdlingResource.idlingResource)
     }
 
@@ -51,11 +56,9 @@ class MainActivityTest {
             )
         )
         onView(withId(R.id.text_title)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_title)).check(matches(withText(dummyMovie[0].title)))
         onView(withId(R.id.year)).check(matches(isDisplayed()))
-        onView(withId(R.id.year)).check(matches(withText(dummyMovie[0].year)))
         onView(withId(R.id.text_description)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_description)).check(matches(withText(dummyMovie[0].description)))
+        onView(withId(R.id.image_poster_detail)).check(matches(isDisplayed()))
     }
 
     @Test
@@ -80,11 +83,9 @@ class MainActivityTest {
             )
         )
         onView(withId(R.id.text_title)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_title)).check(matches(withText(dummyTvShow[0].title)))
         onView(withId(R.id.year)).check(matches(isDisplayed()))
-        onView(withId(R.id.year)).check(matches(withText(dummyTvShow[0].year)))
         onView(withId(R.id.text_description)).check(matches(isDisplayed()))
-        onView(withId(R.id.text_description)).check(matches(withText(dummyTvShow[0].description)))
+        onView(withId(R.id.image_poster_detail)).check(matches(isDisplayed()))
     }
 
 
