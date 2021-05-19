@@ -1,6 +1,7 @@
 package id.ac.unhas.moviecatalog.data.source.remote
 
 import android.util.Log
+import id.ac.unhas.moviecatalog.data.Movie
 import id.ac.unhas.moviecatalog.data.source.remote.network.API
 import id.ac.unhas.moviecatalog.data.source.remote.network.ApiConfig
 import id.ac.unhas.moviecatalog.data.source.remote.response.*
@@ -59,22 +60,19 @@ class RemoteDataSource {
         })
     }
 
-    fun getDetailMovie(movieId: Int, callback : LoadDetailMovie) {
+    fun getDetailMovie(movieId: Int, callback: LoadDetailMovie) {
         EspressoIdlingResource.increment()
 
         val client = ApiConfig.getApiService().getDetailMovie(movieId, API_KEY)
-        client.enqueue(object : Callback<DetailMovieResponse> {
-            override fun onResponse(
-                call: Call<DetailMovieResponse>,
-                response: Response<DetailMovieResponse>
-            ) {
+        client.enqueue(object : Callback<MoviePopular> {
+            override fun onResponse(call: Call<MoviePopular>, response: Response<MoviePopular>) {
                 if (response.isSuccessful) {
                     response.body()?.let { callback.onDetailMovie(it) }
                     EspressoIdlingResource.decrement()
                 }
             }
 
-            override fun onFailure(call: Call<DetailMovieResponse>, t: Throwable) {
+            override fun onFailure(call: Call<MoviePopular>, t: Throwable) {
                 Log.e("RemoteDataSource : ", "getDetailMovie Error : ${t.message}")
                 EspressoIdlingResource.decrement()
             }
@@ -86,10 +84,10 @@ class RemoteDataSource {
         EspressoIdlingResource.increment()
 
         val client = ApiConfig.getApiService().getDetailTVShow(tvId, API_KEY)
-        client.enqueue(object : Callback<DetailTVShowResponse> {
+        client.enqueue(object : Callback<TVShowPopular> {
             override fun onResponse(
-                call: Call<DetailTVShowResponse>,
-                response: Response<DetailTVShowResponse>
+                call: Call<TVShowPopular>,
+                response: Response<TVShowPopular>
             ) {
                 if (response.isSuccessful) {
                     response.body()?.let { callback.onDetailTVShow(it) }
@@ -97,7 +95,7 @@ class RemoteDataSource {
                 }
             }
 
-            override fun onFailure(call: Call<DetailTVShowResponse>, t: Throwable) {
+            override fun onFailure(call: Call<TVShowPopular>, t: Throwable) {
                 Log.e("RemoteDataSource : ", "getDetailTVShow Error : ${t.message}")
                 EspressoIdlingResource.decrement()
             }
@@ -114,10 +112,10 @@ class RemoteDataSource {
     }
 
     interface LoadDetailMovie {
-        fun onDetailMovie (detailMovie: DetailMovieResponse)
+        fun onDetailMovie (detailMovie: MoviePopular)
     }
 
     interface LoadDetailTVShow {
-        fun onDetailTVShow (detailTVShowResponse: DetailTVShowResponse)
+        fun onDetailTVShow (detailTVShowResponse: TVShowPopular)
     }
 }

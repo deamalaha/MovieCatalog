@@ -1,18 +1,19 @@
 package id.ac.unhas.moviecatalog.data
 
-
 data class Movie(
-    var movieId: Int?,
-    var title: String?,
-    var year: String?,
-    var image: String?
+    var movieId: Int,
+    var title: String,
+    var year: String,
+    var description: String,
+    var image: String
 )
 
 data class TVShow(
-    var tvId: Int?,
-    var title: String?,
-    var year: String?,
-    var image: String?
+    var tvId: Int,
+    var title: String,
+    var year: String,
+    var description: String,
+    var image: String
 )
 
 data class DetailShow(

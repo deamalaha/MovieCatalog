@@ -7,8 +7,8 @@ data class DetailTVShowResponse(
 	@field:SerializedName("id")
 	val id: Int,
 
-	@field:SerializedName("number_of_seasons")
-	val numberOfSeasons: Int,
+	@field:SerializedName("name")
+	val name: String,
 
 	@field:SerializedName("first_air_date")
 	val firstAirDate: String,
@@ -17,9 +17,7 @@ data class DetailTVShowResponse(
 	val overview: String,
 
 	@field:SerializedName("poster_path")
-	val posterPath: String,
+	val posterPath: String
 
-	@field:SerializedName("name")
-	val name: String
 
 )

@@ -1,9 +1,6 @@
 package id.ac.unhas.moviecatalog.data.source.remote.network
 
-import id.ac.unhas.moviecatalog.data.source.remote.response.DetailMovieResponse
-import id.ac.unhas.moviecatalog.data.source.remote.response.DetailTVShowResponse
-import id.ac.unhas.moviecatalog.data.source.remote.response.MoviePopularResponse
-import id.ac.unhas.moviecatalog.data.source.remote.response.TVShowPopularResponse
+import id.ac.unhas.moviecatalog.data.source.remote.response.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -25,12 +22,12 @@ interface API {
     fun getDetailMovie(
         @Path("movie_id") movieId: Int,
         @Query("api_key") apiKey: String
-    ): Call<DetailMovieResponse>
+    ): Call<MoviePopular>
 
     @GET("tv/{tv_id}")
     fun getDetailTVShow(
         @Path("tv_id") tvId: Int,
         @Query("api_key") apiKey: String
-    ): Call<DetailTVShowResponse>
+    ): Call<TVShowPopular>
 
 }

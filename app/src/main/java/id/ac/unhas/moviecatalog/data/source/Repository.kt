@@ -2,14 +2,14 @@ package id.ac.unhas.moviecatalog.data.source
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import id.ac.unhas.moviecatalog.data.*
+import id.ac.unhas.moviecatalog.data.DetailShow
+import id.ac.unhas.moviecatalog.data.Movie
+import id.ac.unhas.moviecatalog.data.TVShow
 import id.ac.unhas.moviecatalog.data.source.remote.RemoteDataSource
-import id.ac.unhas.moviecatalog.data.source.remote.response.DetailMovieResponse
-import id.ac.unhas.moviecatalog.data.source.remote.response.DetailTVShowResponse
 import id.ac.unhas.moviecatalog.data.source.remote.response.MoviePopular
 import id.ac.unhas.moviecatalog.data.source.remote.response.TVShowPopular
 
-class Repository (private val remoteDataSource: RemoteDataSource) : MovieAndShowDataSource {
+class Repository(private val remoteDataSource: RemoteDataSource) : MovieAndShowDataSource {
 
     override fun getPopularMovie(): LiveData<List<Movie>> {
         val popularMovieResult = MutableLiveData<List<Movie>>()
@@ -24,6 +24,7 @@ class Repository (private val remoteDataSource: RemoteDataSource) : MovieAndShow
                             response.id,
                             response.title,
                             response.releaseDate,
+                            response.overview,
                             response.posterPath
                         )
                         movieList.add(movie)
@@ -48,6 +49,7 @@ class Repository (private val remoteDataSource: RemoteDataSource) : MovieAndShow
                             response.id,
                             response.name,
                             response.firstAirDate,
+                            response.overview,
                             response.posterPath
                         )
                         tvShowList.add(tvShow)
@@ -63,17 +65,17 @@ class Repository (private val remoteDataSource: RemoteDataSource) : MovieAndShow
         val detailMovieResult = MutableLiveData<DetailShow>()
 
         remoteDataSource.getDetailMovie(movieId, object : RemoteDataSource.LoadDetailMovie {
-            override fun onDetailMovie(detailMovie: DetailMovieResponse) {
-                    val movie = DetailShow(
-                        detailMovie.id,
-                        detailMovie.title,
-                        detailMovie.releaseDate,
-                        detailMovie.overview,
-                        detailMovie.posterPath
-                    )
-                    detailMovieResult.postValue(movie)
-                }
-            })
+            override fun onDetailMovie(detailMovie: MoviePopular) {
+                val movie = DetailShow(
+                    detailMovie.id,
+                    detailMovie.title,
+                    detailMovie.releaseDate,
+                    detailMovie.overview,
+                    detailMovie.posterPath
+                )
+                detailMovieResult.postValue(movie)
+            }
+        })
         return detailMovieResult
     }
 
@@ -81,17 +83,17 @@ class Repository (private val remoteDataSource: RemoteDataSource) : MovieAndShow
         val detailTVShowResult = MutableLiveData<DetailShow>()
 
         remoteDataSource.getDetailTVShow(tvId, object : RemoteDataSource.LoadDetailTVShow {
-            override fun onDetailTVShow(detailTVShowResponse: DetailTVShowResponse) {
-                    val tvShow = DetailShow(
-                        detailTVShowResponse.id,
-                        detailTVShowResponse.name,
-                        detailTVShowResponse.firstAirDate,
-                        detailTVShowResponse.overview,
-                        detailTVShowResponse.posterPath
-                    )
-                    detailTVShowResult.postValue(tvShow)
-                }
-            })
+            override fun onDetailTVShow(detailTVShowResponse: TVShowPopular) {
+                val tvShow = DetailShow(
+                    detailTVShowResponse.id,
+                    detailTVShowResponse.name,
+                    detailTVShowResponse.firstAirDate,
+                    detailTVShowResponse.overview,
+                    detailTVShowResponse.posterPath
+                )
+                detailTVShowResult.postValue(tvShow)
+            }
+        })
         return detailTVShowResult
     }
 }
